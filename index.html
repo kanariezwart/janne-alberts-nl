@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Janne Alberts</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg1: #fdf6ff;
+    --bg2: #eef5ff;
+    --bg3: #fff8ec;
+    --fg: #241f2e;
+    --muted: #7c7488;
+    --card: rgba(255, 255, 255, 0.55);
+    --card-border: rgba(255, 255, 255, 0.8);
+    --shadow: rgba(80, 60, 110, 0.12);
+    --grad-a: #f6a6c1;
+    --grad-b: #b79bf0;
+    --grad-c: #7fc8f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg1: #1c1626;
+      --bg2: #151a26;
+      --bg3: #201a16;
+      --fg: #f3eefb;
+      --muted: #a79fbb;
+      --card: rgba(30, 25, 42, 0.55);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --shadow: rgba(0, 0, 0, 0.35);
+      --grad-a: #ff9ec2;
+      --grad-b: #c6a6ff;
+      --grad-c: #7fd3ff;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--fg);
+    background: radial-gradient(circle at 20% 20%, var(--bg1), transparent 55%),
+                radial-gradient(circle at 80% 15%, var(--bg2), transparent 50%),
+                radial-gradient(circle at 50% 90%, var(--bg3), transparent 55%),
+                var(--bg1);
+    background-size: 200% 200%;
+    animation: drift 18s ease-in-out infinite;
+    overflow: hidden;
+    position: relative;
+  }
+
+  @keyframes drift {
+    0%, 100% { background-position: 0 0; }
+    50% { background-position: 100% 60%; }
+  }
+
+  .sparkle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    opacity: 0;
+    animation: twinkle 6s ease-in-out infinite;
+  }
+  .sparkle:nth-child(1) { width: 6px; height: 6px; top: 18%; left: 22%; animation-delay: 0s; }
+  .sparkle:nth-child(2) { width: 4px; height: 4px; top: 30%; left: 78%; animation-delay: 1.5s; }
+  .sparkle:nth-child(3) { width: 5px; height: 5px; top: 70%; left: 15%; animation-delay: 3s; }
+  .sparkle:nth-child(4) { width: 3px; height: 3px; top: 78%; left: 82%; animation-delay: 4.2s; }
+  .sparkle:nth-child(5) { width: 4px; height: 4px; top: 12%; left: 60%; animation-delay: 2.2s; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.6); }
+    50% { opacity: 0.9; transform: scale(1); }
+  }
+
+  .card {
+    position: relative;
+    text-align: center;
+    padding: 3rem 3.25rem;
+    border-radius: 28px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 20px 60px -20px var(--shadow), 0 2px 8px var(--shadow);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  h1 {
+    margin: 0 0 0.7rem;
+    font-size: clamp(2.1rem, 6vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(100deg, var(--grad-a), var(--grad-b) 45%, var(--grad-c));
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 7s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0%, 100% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <span class="sparkle"></span>
+  <span class="sparkle"></span>
+  <span class="sparkle"></span>
+  <span class="sparkle"></span>
+  <span class="sparkle"></span>
+  <div class="card">
+    <h1>Janne Alberts</h1>
+    <p>Dit domein wacht rustig tot ze er iets van wil maken.</p>
+  </div>
+</body>
+</html>
